@@ -41,53 +41,53 @@ export default function 쇠쟁이Homepage() {
     return <FindCompanyPage onBack={() => setPage("home")} companies={companies} />;
 
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-800">
-      <header className="flex items-center justify-between px-10 py-6 bg-white shadow-sm">
-        <div className="flex flex-col items-start gap-2">
-          <div className="flex items-center gap-2 text-2xl font-bold">
-            <Factory className="w-7 h-7" /> 쇠쟁이
+    <div className="min-h-screen bg-gray-50 text-gray-800 overflow-x-hidden">
+      <header className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between px-4 sm:px-6 lg:px-10 py-4 sm:py-6 bg-white shadow-sm">
+        <div className="flex flex-col gap-3 min-w-0 w-full sm:w-auto">
+          <div className="flex items-center gap-2 text-xl sm:text-2xl font-bold">
+            <Factory className="w-6 h-6 sm:w-7 sm:h-7 shrink-0" /> 쇠쟁이
           </div>
-          <div className="flex gap-2">
-            <Button size="sm" variant="outline" onClick={() => setPage("find")}>업체 찾기</Button>
-            <Button size="sm" variant="outline" onClick={() => setPage("vendor")}>업체등록</Button>
+          <div className="flex flex-wrap gap-2">
+            <Button size="sm" variant="outline" className="min-h-9" onClick={() => setPage("find")}>업체 찾기</Button>
+            <Button size="sm" variant="outline" className="min-h-9" onClick={() => setPage("vendor")}>업체등록</Button>
           </div>
         </div>
-        <div className="flex gap-4">
-          <Button variant="outline">로그인</Button>
-          <Button onClick={() => setPage("signup")}>회원가입</Button>
+        <div className="flex gap-2 sm:gap-3 w-full sm:w-auto sm:shrink-0">
+          <Button variant="outline" className="flex-1 sm:flex-initial min-h-10">로그인</Button>
+          <Button className="flex-1 sm:flex-initial min-h-10" onClick={() => setPage("signup")}>회원가입</Button>
         </div>
       </header>
 
-      <section className="px-10 py-20 text-center bg-gradient-to-b from-white to-gray-100">
+      <section className="px-4 sm:px-6 lg:px-10 py-12 sm:py-16 md:py-20 text-center bg-gradient-to-b from-white to-gray-100">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-extrabold mb-6"
+          className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-4 sm:mb-6 leading-tight px-1"
         >
           금속가공, 가장 빠르게 연결하다
         </motion.h1>
-        <p className="text-lg mb-8 text-gray-600">
+        <p className="text-base sm:text-lg mb-6 sm:mb-8 text-gray-600 max-w-xl mx-auto leading-relaxed">
           도면 업로드 후 여러 가공업체의 견적을 비교하고 안전하게 거래하세요.
         </p>
-        <div className="flex justify-center gap-4 max-w-xl mx-auto">
-          <Input placeholder="가공 공정 또는 재질 검색" />
-          <Button>견적 요청하기</Button>
+        <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 max-w-xl mx-auto w-full">
+          <Input placeholder="가공 공정 또는 재질 검색" className="min-h-11 w-full min-w-0" />
+          <Button className="w-full sm:w-auto shrink-0 min-h-11 px-6">견적 요청하기</Button>
         </div>
       </section>
 
-      <section className="px-10 py-20 grid md:grid-cols-3 gap-8">
+      <section className="px-4 sm:px-6 lg:px-10 py-12 sm:py-16 md:py-20 grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
         <FeatureCard icon={<Upload className="mx-auto mb-4 w-10 h-10" />} title="도면 업로드" desc="PDF, DWG, STEP 파일 업로드 후 간편 견적 요청" />
         <FeatureCard icon={<ShieldCheck className="mx-auto mb-4 w-10 h-10" />} title="안전 결제" desc="에스크로 기반 안전 거래 시스템" />
         <FeatureCard icon={<BarChart3 className="mx-auto mb-4 w-10 h-10" />} title="신뢰 데이터" desc="납기 이행률과 평점 기반 업체 선택" />
       </section>
 
-      <section className="px-10 py-20 bg-gray-900 text-white text-center">
-        <h2 className="text-3xl font-bold mb-6">지금 바로 견적을 받아보세요</h2>
-        <Button size="lg" onClick={() => setPage("signup")}>무료로 시작하기</Button>
+      <section className="px-4 sm:px-6 lg:px-10 py-12 sm:py-16 md:py-20 bg-gray-900 text-white text-center">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-5 sm:mb-6 leading-snug">지금 바로 견적을 받아보세요</h2>
+        <Button size="lg" className="w-full max-w-xs min-h-11" onClick={() => setPage("signup")}>무료로 시작하기</Button>
       </section>
 
-      <footer className="px-10 py-8 bg-gray-100 text-sm text-gray-600 text-center">
+      <footer className="px-4 sm:px-6 lg:px-10 py-6 sm:py-8 bg-gray-100 text-sm text-gray-600 text-center">
         © 2026 쇠쟁이. All rights reserved.
       </footer>
     </div>
@@ -100,7 +100,7 @@ export default function 쇠쟁이Homepage() {
 function FeatureCard({ icon, title, desc }: any) {
   return (
     <Card className="rounded-2xl shadow-md">
-      <CardContent className="p-8 text-center">
+      <CardContent className="p-6 sm:p-8 text-center">
         {icon}
         <h3 className="text-xl font-semibold mb-2">{title}</h3>
         <p className="text-gray-600">{desc}</p>
@@ -155,9 +155,9 @@ function SignupPage({ onBack }: { onBack: () => void }) {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-6">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4 sm:p-6">
       <Card className="w-full max-w-md rounded-2xl shadow-xl">
-        <CardContent className="p-8 space-y-4">
+        <CardContent className="p-5 sm:p-8 space-y-4">
           <h2 className="text-2xl font-bold text-center">회원가입</h2>
           <Input
             placeholder="이메일"
@@ -226,17 +226,18 @@ function FindCompanyPage({
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-10">
+    <div className="min-h-screen bg-gray-100 p-4 sm:p-6 md:p-10 overflow-x-hidden">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl font-bold mb-6">업체 찾기</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">업체 찾기</h2>
 
-        <div className="flex gap-4 mb-8">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8">
           <Input
             placeholder="공정, 지역, 업체명 검색"
             value={keyword}
             onChange={(e) => setKeyword(e.target.value)}
+            className="min-h-11 w-full min-w-0"
           />
-          <Button onClick={handleSearch} disabled={loading}>
+          <Button onClick={handleSearch} disabled={loading} className="w-full sm:w-auto shrink-0 min-h-11 sm:min-w-[5.5rem]">
             {loading ? "검색 중..." : "검색"}
           </Button>
         </div>
@@ -263,8 +264,8 @@ function FindCompanyPage({
           )}
         </div>
 
-        <div className="mt-10">
-          <Button variant="outline" onClick={onBack}>메인으로 돌아가기</Button>
+        <div className="mt-8 sm:mt-10">
+          <Button variant="outline" className="w-full sm:w-auto min-h-11" onClick={onBack}>메인으로 돌아가기</Button>
         </div>
       </div>
     </div>
@@ -396,12 +397,12 @@ function VendorRegisterPage({
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-6">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4 sm:p-6 overflow-x-hidden">
       <Card className="w-full max-w-2xl rounded-2xl shadow-xl">
-        <CardContent className="p-10">
-          <h2 className="text-2xl font-bold mb-8 text-center">가공업체 등록</h2>
+        <CardContent className="p-5 sm:p-8 md:p-10">
+          <h2 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-center">가공업체 등록</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             <Input
               placeholder="회사명"
               value={companyName}
@@ -416,16 +417,16 @@ function VendorRegisterPage({
               maxLength={13}
             />
 
-            <div className="flex gap-2 md:col-span-2">
+            <div className="flex flex-col sm:flex-row gap-2 md:col-span-2">
               <Input
                 placeholder="우편번호"
                 value={zonecode}
                 onChange={(e) => setZonecode(e.target.value.replace(/[^0-9]/g, ""))}
                 inputMode="numeric"
                 maxLength={5}
-                className="w-1/2"
+                className="w-full sm:w-1/2 min-h-11"
               />
-              <Button type="button" variant="outline" className="w-1/2" onClick={handleSearchAddress}>
+              <Button type="button" variant="outline" className="w-full sm:w-1/2 min-h-11 whitespace-nowrap" onClick={handleSearchAddress}>
                 우편번호 검색
               </Button>
             </div>
